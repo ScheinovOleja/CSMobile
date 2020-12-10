@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/csmobile/CSMobile_site/migrations/
+.idea/
+/venv_csmobile/
