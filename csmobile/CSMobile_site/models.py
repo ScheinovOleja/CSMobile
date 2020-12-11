@@ -58,12 +58,12 @@ class Costumer(HandBook):
         return f'{self.name} - {self.inn}'
 
 
-class Application(Document):
-    contractor = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
+class request(Document):
+    Costumer = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
     status = models.ForeignKey(Status, null=True, on_delete=models.CASCADE, verbose_name='Статус обращения')
-    contacts = models.ForeignKey(CostumerContact, null=True, on_delete=models.CASCADE,
+    CostumerContacts = models.ForeignKey(CostumerContact, null=True, on_delete=models.CASCADE,
                                  verbose_name='Контакты с клиентом')
-    performer = models.ForeignKey(Employee, null=True, on_delete=models.CASCADE, verbose_name='Исполнитель')
+    executor = models.ForeignKey(Employee, null=True, on_delete=models.CASCADE, verbose_name='Исполнитель')
 
     def __str__(self):
         return f'{self.contractor} - {self.status}'
