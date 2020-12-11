@@ -1,10 +1,10 @@
 from django.contrib import admin
-from CSMobile_site.models import Client, Employee, Status, CostumerContact, Contractor, Application
+from CSMobile_site.models import Contact, Employee, Status, CostumerContact, Contractor, Request
 
 
 # Register your models here.
 
 
-@admin.register(Client, Employee, Status, CostumerContact, Contractor, Application)
+@admin.register(Contact, Employee, Status, CostumerContact, Contractor, Request)
 class CSAdmin(admin.ModelAdmin):
     pass

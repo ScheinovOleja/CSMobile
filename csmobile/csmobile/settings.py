@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'CSMobile_site'
+    'CSMobile_site',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
