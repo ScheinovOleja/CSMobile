@@ -11,8 +11,7 @@ class directory(models.Model):
     name = models.CharField(verbose_name="Наименование", max_length=50)
 
 
-class Client(HandBook):
-    full_name = models.CharField(verbose_name="ФИО", max_length=50)
+class Contact(HandBook):
     phone = models.CharField(verbose_name="Телефон", max_length=11)
     email = models.EmailField(verbose_name="Email", max_length=50)
 
@@ -21,7 +20,6 @@ class Client(HandBook):
 
 
 class Employee(HandBook):
-    full_name = models.CharField(verbose_name="ФИО", max_length=50)
     phone = models.CharField(verbose_name="Телефон", max_length=11)
     email = models.EmailField(verbose_name="Email", max_length=50)
 
