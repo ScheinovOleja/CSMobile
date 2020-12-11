@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 
 
-class HandBook(models.Model):
+class directory(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(verbose_name="Наименование", max_length=50)
 
