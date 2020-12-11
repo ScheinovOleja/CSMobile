@@ -1,4 +1,3 @@
-import uuid as uuid
 from django.db import models
 
 
@@ -6,10 +5,9 @@ from django.db import models
 
 
 class Directory(models.Model):
-    guid = models.CharField(verbose_name='GUID', max_length=50, editable=False)
-    code = models.CharField(verbose_name='Код', max_length=20)
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(verbose_name="Наименование", max_length=50)
+    guid = models.CharField(verbose_name='GUID', max_length=50, editable=False, default='')
+    code = models.CharField(verbose_name='Код', max_length=20, default='')
+    name = models.CharField(verbose_name="Наименование", max_length=50, default='')
 
 
 class Contact(Directory):
@@ -31,7 +29,7 @@ class Employee(Directory):
 class Document(models.Model):
     guid = models.CharField(verbose_name='GUID', max_length=50, editable=False)
     date = models.DateTimeField(verbose_name="Дата документа", default='')
-    number = models.CharField(verbose_name='Номер документа', max_length=50)
+    number = models.CharField(verbose_name='Номер документа', max_length=50, default='')
 
 
 class Status(models.Model):
