@@ -58,6 +58,7 @@ class Costumer(HandBook):
 
 class request(Document):
     Costumer = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
+    Contact = models.ForeignKey(Contact,
     status = models.ForeignKey(Status, null=True, on_delete=models.CASCADE, verbose_name='Статус обращения')
     CostumerContacts = models.ForeignKey(CostumerContact, null=True, on_delete=models.CASCADE,
                                  verbose_name='Контакты с клиентом')
