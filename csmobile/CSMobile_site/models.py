@@ -6,7 +6,8 @@ from django.db import models
 
 
 class directory(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    
+    code
     name = models.CharField(verbose_name="Наименование", max_length=50)
 
 
