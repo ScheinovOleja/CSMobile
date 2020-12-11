@@ -51,7 +51,7 @@ class CostumerContact(models.Model):
         return f'{self.client} - {self.employee}'
 
 
-class Contractor(HandBook):
+class Costumer(HandBook):
     inn = models.CharField(verbose_name='ИНН', max_length=10)
 
     def __str__(self):
