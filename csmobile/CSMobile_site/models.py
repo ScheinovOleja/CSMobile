@@ -6,7 +6,7 @@ from django.db import models
 
 
 class directory(models.Model):
-    
+    guid
     code
     name = models.CharField(verbose_name="Наименование", max_length=50)
 
@@ -30,9 +30,9 @@ class Employee(HandBook):
 
 
 class Document(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    guid
     date = models.DateTimeField(verbose_name="Дата документа", default='')
-    num = models.CharField(verbose_name='Номер документа', max_length=50)
+    number = models.CharField(verbose_name='Номер документа', max_length=50)
 
 
 class Status(models.Model):
