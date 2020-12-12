@@ -1,9 +1,40 @@
 {
-  "employer": {
+  "employee": {
     "guid": "3246jghj345yghmhj456",
     "code": "2353463",
     "name": "Шейнов Олег Васильевич",
     "phone": "88005553535",
     "email": "example@example.com"
+  },
+  "contact": {
+    "guid": "f3456gk4356yti456yui",
+    "code": "12345435",
+    "name": "Иванов Иван Иванович",
+    "phone": "89555457898",
+    "email": "example@example.ru"
+  },
+  "status": {
+    "state": "В работе"
+  },
+  "customer": {
+    "employee": 1,
+    "client": 1,
+    "appeal": "Надо что-то сделать"
+  },
+  "contractor": {
+    "guid": "rtky45775hyrt45TTE54",
+    "code": "4356467345346",
+    "name": "ООО 'Куплю-продам'",
+    "inn": "1234567890"
+  },
+  "message": {
+    "guid": "trj43her4546y3h5",
+    "date": "12.12.2020",
+    "number": "34756373467537",
+    "customer": 1,
+    "contact": 1,
+    "status": 1,
+    "costumer_contacts": 1,
+    "executor": 1
   }
 }

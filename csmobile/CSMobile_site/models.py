@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Directory(models.Model):
-    guid = models.CharField(verbose_name='GUID', max_length=50, editable=False, default='')
+    guid = models.CharField(verbose_name='GUID', max_length=50, default='')
     code = models.CharField(verbose_name='Код', max_length=20, default='')
     name = models.CharField(verbose_name="Наименование", max_length=50, default='')
 
@@ -27,7 +27,7 @@ class Employee(Directory):
 
 
 class Document(models.Model):
-    guid = models.CharField(verbose_name='GUID', max_length=50, editable=False)
+    guid = models.CharField(verbose_name='GUID', max_length=50)
     date = models.DateTimeField(verbose_name="Дата документа", default='')
     number = models.CharField(verbose_name='Номер документа', max_length=50, default='')
 
@@ -39,7 +39,7 @@ class Status(models.Model):
         return self.state
 
 
-class CostumerContact(models.Model):
+class CustomerContact(models.Model):
     employee = models.ForeignKey(Employee, null=True, on_delete=models.CASCADE, verbose_name='Сотрудник')
     client = models.ForeignKey(Contact, null=True, on_delete=models.CASCADE, verbose_name='Клиент')
     appeal = models.CharField(verbose_name="Суть обращения", max_length=5000)
@@ -55,13 +55,13 @@ class Contractor(Directory):
         return f'{self.name} - {self.inn}'
 
 
-class Request(Document):
-    costumer = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
+class Message(Document):
+    customer = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
     contact = models.ForeignKey(Contact, null=True, on_delete=models.CASCADE, verbose_name='Клиент')
     status = models.ForeignKey(Status, null=True, on_delete=models.CASCADE, verbose_name='Статус обращения')
-    CostumerContacts = models.ForeignKey(CostumerContact, null=True, on_delete=models.CASCADE,
-                                         verbose_name='Контакты с клиентом')
+    customer_contacts = models.ForeignKey(CustomerContact, null=True, on_delete=models.CASCADE,
+                                          verbose_name='Контакты с клиентом')
     executor = models.ForeignKey(Employee, null=True, on_delete=models.CASCADE, verbose_name='Исполнитель')
 
     def __str__(self):
-        return f'{self.costumer} - {self.status}'
+        return f'{self.customer} - {self.status}'
