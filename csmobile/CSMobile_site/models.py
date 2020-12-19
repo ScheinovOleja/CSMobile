@@ -27,9 +27,9 @@ class Employee(Directory):
 
 
 class Document(models.Model):
-    guid = models.CharField(verbose_name='GUID', max_length=50)
-    date = models.DateTimeField(verbose_name="Дата документа", default='')
-    number = models.CharField(verbose_name='Номер документа', max_length=50, default='')
+    guid = models.CharField(verbose_name='GUID', max_length=50, null=True)
+    date = models.DateField(verbose_name="Дата документа", default='', null=True)
+    number = models.CharField(verbose_name='Номер документа', max_length=50, default='', null=True)
 
 
 class Status(models.Model):

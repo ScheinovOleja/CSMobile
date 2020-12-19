@@ -1,6 +1,8 @@
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
 from . import views as view
 
-urlpatterns = [
-    path('add_data/', view.AddData.as_view(), name='api_data')
-]
+router = DefaultRouter()
+router.register('add_data', view.AddDataSet, basename='add_data')
+urlpatterns = router.urls
