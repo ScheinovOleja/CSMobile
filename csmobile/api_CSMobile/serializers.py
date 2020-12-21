@@ -38,7 +38,7 @@ class ContractorSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     contact = ContactSerializer()
-    customer = ContractorSerializer()
+    contractor = ContractorSerializer()
     customer_contacts = CustomerContactSerializer()
     executor = EmployeeSerializer()
     status = StatusSerializer()
@@ -46,33 +46,32 @@ class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
         fields = (
-            'guid', 'date', 'number', 'contact', 'customer', 'customer_contacts', 'executor', 'status')
+            'guid', 'date', 'number', 'contact', 'contractor', 'customer_contacts', 'executor', 'status')
 
     def create(self, validated_data):
-        contact_data = validated_data.pop('contact')
-        contact = Contact.objects.create(**contact_data)
-        customer_data = validated_data.pop('customer')
-        customer = Contractor.objects.create(**customer_data)
-        executor_data = validated_data.pop('executor')
-        executor = Employee.objects.create(**executor_data)
-        status_data = validated_data.pop('status')
-        status = Status.objects.create(**status_data)
-        customer_contact_data = validated_data.pop('customer_contacts')
-        customer_contact = CustomerContact.objects.create(
-            appeal=customer_contact_data['appeal'],
-            employee_id=executor.id,
-            client_id=contact.id
-        )
+        contact = Contact.objects.update_or_create(**validated_data.pop('contact'))[0].id
 
-        message = Message.objects.create(
+        executor = Employee.objects.update_or_create(**validated_data.pop('executor'))[0].id
+
+        customer_contacts = CustomerContact.objects.update_or_create(
+            appeal=validated_data.pop('customer_contacts')['appeal'],
+            employee_id=executor,
+            client_id=contact
+        )[0].id
+
+        contractor = Contractor.objects.update_or_create(**validated_data.pop('contractor'))[0].id
+
+        status = Status.objects.update_or_create(**validated_data.pop('status'))[0].id
+
+        message = Message.objects.update_or_create(
             guid=validated_data['guid'],
             date=validated_data['date'],
             number=validated_data['number'],
-            contact_id=contact.id,
-            customer_id=customer.id,
-            customer_contacts_id=customer_contact.id,
-            executor_id=executor.id,
-            status_id=status.id,
+            contact_id=contact,
+            contractor_id=contractor,
+            customer_contacts_id=customer_contacts,
+            executor_id=executor,
+            status_id=status
         )
 
-        return message
+        return message[0]

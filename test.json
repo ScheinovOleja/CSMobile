@@ -1,45 +1,92 @@
-{
-  "guid": "rtu34556456rtry",
-  "date": "2020-12-17",
-  "number": "5475678653",
-  "contact": {
-    "guid": "trjnetr43wg54457ujh",
-    "code": "234564356345",
-    "name": "Иванов Иван Иванович",
-    "phone": "79114347633",
-    "email": "oleg20064@gmail.com"
-  },
-  "customer": {
-    "guid": "rtyujeyu5ry53675468",
-    "code": "345665588574",
-    "name": "ООО \"Куплю-Продам\"",
-    "inn": "5315005937"
-  },
-  "customer_contacts": {
-    "employee": {
-      "guid": "ryk45urruk4567lyrкui5474",
-      "code": "2346445675468",
-      "name": "Шейнов Олег Васильевич",
-      "phone": "79114347633",
-      "email": "oleg20064@gmail.com"
-    },
-    "client": {
+[
+  {
+    "guid": "rtu34556456rtry",
+    "date": "2020-12-17",
+    "number": "5475678653",
+    "contact": {
       "guid": "trjnetr43wg54457ujh",
       "code": "234564356345",
       "name": "Иванов Иван Иванович",
       "phone": "79114347633",
       "email": "oleg20064@gmail.com"
     },
-    "appeal": "Надо чот сделать два раза"
+    "contractor": {
+      "guid": "rtyujeyu5ry53675468",
+      "code": "345665588574",
+      "name": "ООО \"Куплю-Продам\"",
+      "inn": "5315005937"
+    },
+    "customer_contacts": {
+      "employee": {
+        "guid": "ryk45urruk4567lyrкui5474",
+        "code": "2346445675468",
+        "name": "Шейнов Олег Васильевич",
+        "phone": "79114347633",
+        "email": "oleg20064@gmail.com"
+      },
+      "client": {
+        "guid": "trjnetr43wg54457ujh",
+        "code": "234564356345",
+        "name": "Иванов Иван Иванович",
+        "phone": "79114347633",
+        "email": "oleg20064@gmail.com"
+      },
+      "appeal": "Надо чот сделать два раза"
+    },
+    "executor": {
+      "guid": "ryk45urruk4567lyrкui5474",
+      "code": "2346445675468",
+      "name": "Шейнов Олег Васильевич",
+      "phone": "79114347633",
+      "email": "oleg20064@gmail.com"
+    },
+    "status": {
+      "state": "В работе"
+    }
   },
-  "executor": {
-    "guid": "ryk45urruk4567lyrкui5474",
-    "code": "2346445675468",
-    "name": "Шейнов Олег Васильевич",
-    "phone": "79114347633",
-    "email": "oleg20064@gmail.com"
-  },
-  "status": {
-    "state": "В работе"
+  {
+    "guid": "dfhgyi487jifdsy",
+    "date": "2020-12-20",
+    "number": "4994459844",
+    "contact": {
+      "guid": "gdhy8497fhjksdkm",
+      "code": "234564356345",
+      "name": "Петров Петр Петрович",
+      "phone": "79446897556",
+      "email": "example@example.com"
+    },
+    "contractor": {
+      "guid": "sdvblnuhs73592ksrg",
+      "code": "1645975648546",
+      "name": "ООО \"Продам-Куплю\"",
+      "inn": "1234567891"
+    },
+    "customer_contacts": {
+      "employee": {
+        "guid": "ryk45urruk4567lyrкui5474",
+        "code": "2346445675468",
+        "name": "Шейнов Олег Васильевич",
+        "phone": "79114347633",
+        "email": "oleg20064@gmail.com"
+      },
+      "client": {
+        "guid": "gdhy8497fhjksdkm",
+        "code": "234564356345",
+        "name": "Петров Петр Петрович",
+        "phone": "79446897556",
+        "email": "example@example.com"
+      },
+      "appeal": "Надо чот сделать три раза"
+    },
+    "executor": {
+      "guid": "ryk45urruk4567lyrкui5474",
+      "code": "2346445675468",
+      "name": "Шейнов Олег Васильевич",
+      "phone": "79114347633",
+      "email": "oleg20064@gmail.com"
+    },
+    "status": {
+      "state": "Завершено"
+    }
   }
-}
+]

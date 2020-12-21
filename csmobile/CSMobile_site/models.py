@@ -56,7 +56,7 @@ class Contractor(Directory):
 
 
 class Message(Document):
-    customer = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
+    contractor = models.ForeignKey(Contractor, null=True, on_delete=models.CASCADE, verbose_name='Контрагент')
     contact = models.ForeignKey(Contact, null=True, on_delete=models.CASCADE, verbose_name='Клиент')
     status = models.ForeignKey(Status, null=True, on_delete=models.CASCADE, verbose_name='Статус обращения')
     customer_contacts = models.ForeignKey(CustomerContact, null=True, on_delete=models.CASCADE,
@@ -64,4 +64,4 @@ class Message(Document):
     executor = models.ForeignKey(Employee, null=True, on_delete=models.CASCADE, verbose_name='Исполнитель')
 
     def __str__(self):
-        return f'{self.customer} - {self.status}'
+        return f'{self.contractor} - {self.status}'
