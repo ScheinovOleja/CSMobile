@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Главная страница{% endblock title %}
 {% block header %}
 	<ul>
 		<li>Главная</li>
@@ -10,11 +10,20 @@
 		<li>Обращения</li>
 		<li>Что-то еще</li>
 	</ul>
-{% endblock %}
+{% endblock header %}
 
 {% block content %}
-	<div>Тестовая надпись</div>
-{% endblock %}
+	{% if user.is_active %}
+		<div>Вы зашли как {{ user }}</div>
+		<div><a href="{% url "logout" %}">Выйти</a></div>
+	{% else %}
+		<form action="post">
+			{% csrf_token %}
+			<div><a href="{% url "login" %}">Войти</a></div>
+		</form>
+
+	{% endif %}
+{% endblock content %}
 
 {% block footer %}
 	<div>
@@ -25,4 +34,4 @@
 			<li>Что-то еще интереснее</li>
 		</ul>
 	</div>
-{% endblock %}
+{% endblock footer %}
