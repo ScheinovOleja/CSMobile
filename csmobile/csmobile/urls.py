@@ -19,5 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('CSMobile_site.urls')),
-    path('api/', include('api_CSMobile.urls'))
+    path('api/', include('api_CSMobile.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 ]

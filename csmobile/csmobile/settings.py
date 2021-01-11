@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,9 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djoser',
     'rest_framework',
+    'rest_framework_simplejwt',
     'CSMobile_site',
-    'api_CSMobile'
+    'api_CSMobile',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -98,12 +101,29 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+JWT_AUTH = {
+
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+
+    'JWT_ALLOW_REFRESH': True,
+
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=1),
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'EUROPE/MOSCOW'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -117,5 +137,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
 
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
